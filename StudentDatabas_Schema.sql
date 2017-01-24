@@ -9,9 +9,9 @@ street     VARCHAR(50)    NOT NULL,
 city       VARCHAR(50)    NOT NULL DEFAULT "Stockholm",
 phone      VARCHAR(20)    NOT NULL,
 birth_date DATE           NOT NULL,
-sex        ENUM('M', 'K') NOT NULL,
-date_entered TIMESTAMP,
-student_id INT UNSIGNED   NOT NULL AUTO_INCREMENT PRIMARY KEY
+sex        VARCHAR(10)    NOT NULL,
+date_entered GETDATE(),
+student_id INT UNSIGNED   NOT NULL IDENTITY(1,1) PRIMARY KEY
 
 );
 
@@ -19,7 +19,7 @@ student_id INT UNSIGNED   NOT NULL AUTO_INCREMENT PRIMARY KEY
 CREATE TABLE class(
 
 name     VARCHAR(50)   NOT NULL,
-class_id INT UNSIGNED  NOT NULL AUTO_INCREMENT PRIMARY KEY);
+class_id INT UNSIGNED  NOT NULL IDENTITY(1,1) PRIMARY KEY);
 
 -- test tabellen
 CREATE TABLE test(
@@ -27,7 +27,7 @@ CREATE TABLE test(
 date     DATE            NOT NULL,
 type     ENUM('T', 'Q')  NOT NULL,
 class_id INT UNSIGNED    NOT NULL,
-test_id  INT UNSIGNED    NOT NULL AUTO_INCREMENT PRIMARY KEY
+test_id  INT UNSIGNED    NOT NULL IDENTITY(1,1) PRIMARY KEY
 
 );
 
